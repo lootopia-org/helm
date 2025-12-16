@@ -1,0 +1,71 @@
+global:
+  domain: argocd.argocd.svc.cluster.local
+
+configs:
+  repositories:
+    core-repo:
+      url: https://github.com/lootopia-org/core
+      type: git
+    helm-repo:
+      url: https://github.com/lootopia-org/helm
+      type: git
+    c-repo:
+      url: https://github.com/lootopia-org/C
+      type: git
+
+  rbac:
+    policy.default: role:readonly
+    policy.csv: |
+      p, role:dev-admin, applications, *, development/*, allow
+      p, role:dev-admin, applications, get, */*, allow
+      g, dev-team, role:dev-admin
+      
+      p, role:int-admin, applications, *, integration/*, allow
+      p, role:int-admin, applications, get, */*, allow
+      g, int-team, role:int-admin
+      
+      p, role:prod-deployer, applications, sync, production/*, allow
+      p, role:prod-deployer, applications, get, */*, allow
+      g, prod-team, role:prod-deployer
+      
+      p, role:admin, *, *, *, allow
+      g, admin-team, role:admin
+
+server:
+  service:
+    type: ClusterIP
+  
+  ingress:
+    enabled: false
+
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+
+controller:
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 2Gi
+    requests:
+      cpu: 1000m
+      memory: 1Gi
+
+repoServer:
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+
+metrics:
+  enabled: true
+
+notifications:
+  enabled: true
