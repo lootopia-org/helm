@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: core-production
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: production
+  
+  source:
+    repoURL: https://github.com/lootopia-org/core
+    targetRevision: release
+    path: k8s/overlays/production
+  
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: production
+  
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+    retry:
+      limit: 3
+      backoff:
+        duration: 10s
+        factor: 2
+        maxDuration: 5m
+  
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: production-alerts
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: production-deploys
