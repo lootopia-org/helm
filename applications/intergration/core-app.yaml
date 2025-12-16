@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: core
+  name: core-46f8ab7c0cff9df7cd124852e26022a6bf89e315
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
