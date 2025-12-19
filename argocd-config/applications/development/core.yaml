@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/lootopia-org/core
     targetRevision: dev
-    path: k8s/overlays/development
+    path: k8s/overlays/devlopment
 
   destination:
     server: https://kubernetes.default.svc
