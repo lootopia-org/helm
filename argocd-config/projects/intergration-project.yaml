@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: core-integration
+  name: core-37cb707f0bd9
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: integration
+  project: intergration
   
   source:
     repoURL: https://github.com/lootopia-org/core
