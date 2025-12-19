@@ -7,7 +7,7 @@ spec:
   description: Development environment
 
   sourceRepos:
-    - https://github.com/lootopia-org
+    - https://github.com/lootopia-org/*
 
   destinations:
     - namespace: development
