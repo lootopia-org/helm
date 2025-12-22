@@ -1,46 +1,31 @@
-apiVersion: kafka.strimzi.io/v1beta2
+apiVersion: kafka.strimzi.io/v1
 kind: Kafka
 metadata:
-  name: kafka
+  name: dev-kafka
   namespace: development
 spec:
   kafka:
     version: 3.7.0
-    replicas: 3
     listeners:
       - name: internal
         port: 9092
         type: internal
         tls: false
     config:
-      auto.create.topics.enable: "false"
-      offsets.topic.replication.factor: 3
-      transaction.state.log.replication.factor: 3
-      transaction.state.log.min.isr: 2
-      min.insync.replicas: 2
-    storage:
-      type: ephemeral
-    resources:
-      requests:
-        cpu: "500m"
-        memory: 1Gi
-      limits:
-        cpu: "1"
-        memory: 2Gi
-
-  zookeeper:
-    replicas: 3
-    storage:
-      type: ephemeral
-    resources:
-      requests:
-        cpu: "250m"
-        memory: 512Mi
-      limits:
-        cpu: "500m"
-        memory: 1Gi
-
+      auto.create.topics.enable: "true"
+  nodePools:
+    - name: controllers
+      replicas: 1
+      roles:
+        - controller
+      storage:
+        type: ephemeral
+    - name: brokers
+      replicas: 1
+      roles:
+        - broker
+      storage:
+        type: ephemeral
   entityOperator:
     topicOperator: {}
-    userOperator: {}
 
