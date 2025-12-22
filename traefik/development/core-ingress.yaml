@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: core-dev-ingress
+  namespace: dev
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  tls:
+    - hosts:
+        - api.dev.wookiesrpeople2.dev
+      secretName: api-dev-tls
+  rules:
+    - host: api.dev.wookiesrpeople2.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: core-dev
+                port:
+                  number: 443
+
