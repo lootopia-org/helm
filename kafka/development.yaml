@@ -24,13 +24,6 @@ spec:
       min.insync.replicas: 2
       log.retention.hours: 168
       log.segment.bytes: 1073741824
-    storage:
-      type: jbod
-      volumes:
-        - id: 0
-        type: persistent-claim
-        size: 500Gi
-        deleteClaim: false
     resources:
       requests:
         cpu: "2"
@@ -45,10 +38,6 @@ spec:
         topologyKey: topology.kubernetes.io/zone
   zookeeper:
     replicas: 3
-    storage:
-      type: persistent-claim
-      size: 2Gi
-      deleteClaim: false
     resources:
       requests:
         cpu: "1"
