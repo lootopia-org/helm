@@ -2,7 +2,7 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
   name: lootopia.events.send
-  namespace: devlopment
+  namespace: development
   labels:
     strimzi.io/cluster: kafka
 
