@@ -24,8 +24,26 @@ spec:
       min.insync.replicas: 2
       log.retention.hours: 168
       log.segment.bytes: 1073741824
+    storage:
+      type: jbod
+    resources:
+      requests:
+        cpu: "2"
+        memory: 2Gi
+      limits:
+        cpu: "2"
+        memory: 4Gi
+      rack:
+        topologyKey: topology.kubernetes.io/zone
   zookeeper:
     replicas: 3
+    resources:
+      requests:
+        cpu: "1"
+        memory: 4Gi
+      limits:
+        cpu: "2"
+      memory: 8Gi
   entityOperator:
     topicOperator: {}
     userOperator: {}
