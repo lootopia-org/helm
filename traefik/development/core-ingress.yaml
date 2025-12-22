@@ -12,7 +12,7 @@ spec:
         - dev.wookiesrpeople2.dev
       secretName: api-dev-tls
   rules:
-    - host: api.dev.wookiesrpeople2.dev
+    - host: dev.wookiesrpeople2.dev
       http:
         paths:
           - path: /
