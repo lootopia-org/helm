@@ -1,4 +1,4 @@
-apiVersion: kafka.strimzi.io/v1
+apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
   name: kafka
@@ -13,14 +13,13 @@ spec:
         type: internal
         tls: false
     config:
+      auto.create.topics.enable: "false"
       offsets.topic.replication.factor: 3
       transaction.state.log.replication.factor: 3
       transaction.state.log.min.isr: 2
-      default.replication.factor: 3
       min.insync.replicas: 2
-      auto.create.topics.enable: "false"
     storage:
-      type: ephemeral  
+      type: ephemeral
     resources:
       requests:
         cpu: "500m"
@@ -32,7 +31,7 @@ spec:
   zookeeper:
     replicas: 3
     storage:
-      type: ephemeral   
+      type: ephemeral
     resources:
       requests:
         cpu: "250m"
