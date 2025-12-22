@@ -1,11 +1,11 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
-  name: dev-kafka
+  name: kafka
   namespace: development
 spec:
   kafka:
-    version: 3.7.0
+    version: 3.6.0
     replicas: 1
     listeners:
       - name: internal
