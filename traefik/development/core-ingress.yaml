@@ -20,6 +20,7 @@ spec:
             backend:
               service:
                 name: core-dev
+                namespace: development
                 port:
                   number: 443
 
