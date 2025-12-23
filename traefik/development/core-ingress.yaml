@@ -21,5 +21,4 @@ spec:
               service:
                 name: core-dev
                 port:
-                  number: 443
-
+                  number: 80
