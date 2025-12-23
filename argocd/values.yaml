@@ -40,29 +40,29 @@ server:
 
   resources:
     limits:
-      cpu: 1000m
-      memory: 1Gi
+      cpu: 250m
+      memory: 512mi
     requests:
       cpu: 500m
-      memory: 512Mi
+      memory: 1Gi
 
 controller:
   resources:
     limits:
-      cpu: 2000m
-      memory: 2Gi
+      cpu: 500m
+      memory: 512mi
     requests:
-      cpu: 1000m
+      cpu: 1Gi
       memory: 1Gi
 
 repoServer:
   resources:
     limits:
-      cpu: 1000m
-      memory: 1Gi
+      cpu: 250m
+      memory: 512mi
     requests:
       cpu: 500m
-      memory: 512Mi
+      memory: 1Gi
 
 metrics:
   enabled: true
