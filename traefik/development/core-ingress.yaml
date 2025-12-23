@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: core-dev-ingress
-  namespace: traefik
+  namespace: development
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
@@ -20,7 +20,6 @@ spec:
             backend:
               service:
                 name: core-dev
-                namespace: development
                 port:
                   number: 443
 
