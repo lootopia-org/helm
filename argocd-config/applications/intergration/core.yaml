@@ -11,11 +11,11 @@ spec:
   source:
     repoURL: https://github.com/lootopia-org/core
     targetRevision: int
-    path: k8s/overlays/integration
+    path: k8s/overlays/intergration
   
   destination:
     server: https://kubernetes.default.svc
-    namespace: integration
+    namespace: intergration
   
   syncPolicy:
     automated:
