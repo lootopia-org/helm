@@ -41,10 +41,10 @@ server:
   resources:
     limits:
       cpu: 200m
-      memory: 512mi
+      memory: 512Mi
     requests:
       cpu: 100m
-      memory: 256mi
+      memory: 256Mi
 
 controller:
   resources:
@@ -53,16 +53,16 @@ controller:
       memory: 1Gi
     requests:
       cpu: 100m
-      memory: 512mi
+      memory: 512Mi
 
 repoServer:
   resources:
     limits:
       cpu: 200m
-      memory: 512mi
+      memory: 512Mi
     requests:
       cpu: 100m
-      memory: 256mi
+      memory: 256Mi
 
 metrics:
   enabled: true
