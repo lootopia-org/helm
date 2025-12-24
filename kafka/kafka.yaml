@@ -5,14 +5,16 @@ metadata:
 spec:
   kafka:
     version: 4.1.1
-    replicas: 1
+    nodePools:
+      - name: kafka-pool-0
+        replicas: 1
+        storage:
+          type: ephemeral
     listeners:
       - name: internal
         port: 9092
         type: internal
         tls: false
-    storage:
-      type: ephemeral
   zookeeper:
     replicas: 1
     storage:
