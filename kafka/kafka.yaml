@@ -15,10 +15,6 @@ spec:
         port: 9092
         type: internal
         tls: false
-  zookeeper:
-    replicas: 1
-    storage:
-      type: ephemeral
   entityOperator:
     topicOperator: {}
     userOperator: {}
