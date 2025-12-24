@@ -10,7 +10,7 @@ spec:
   
   source:
     repoURL: https://github.com/lootopia-org/core
-    targetRevision: release
+    targetRevision: main
     path: k8s/overlays/production
   
   destination:
