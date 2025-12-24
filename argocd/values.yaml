@@ -40,7 +40,7 @@ server:
 
   resources:
     limits:
-      cpu: 300m
+      cpu: 200m
       memory: 512mi
     requests:
       cpu: 100m
@@ -49,7 +49,7 @@ server:
 controller:
   resources:
     limits:
-      cpu: 500m
+      cpu: 200m
       memory: 1Gi
     requests:
       cpu: 100m
@@ -58,7 +58,7 @@ controller:
 repoServer:
   resources:
     limits:
-      cpu: 300m
+      cpu: 200m
       memory: 512mi
     requests:
       cpu: 100m
