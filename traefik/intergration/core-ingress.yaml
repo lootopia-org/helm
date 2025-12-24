@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: core-int-ingress
+  namespace: intergration
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  tls:
+    - hosts:
+        - int.wookiesrpeople2.dev
+      secretName: cloudflare-api-token
+  rules:
+    - host: int.wookiesrpeople2.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: core-int
+                port:
+                  number: 80
