@@ -11,7 +11,7 @@ metadata:
 spec:
   tls:
     - hosts:
-        - wookiesrpeople2.dev
+        - grpc.wookiesrpeople2.dev
       secretName: cloudflare-api-token
   rules:
     - host: grpc.wookiesrpeople2.dev
