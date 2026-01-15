@@ -9,6 +9,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.middlewares: grpc-web@kubernetescrd
     traefik.ingress.kubernetes.io/service.serversscheme: h2c
 spec:
+  ingressClassName: traefik
   tls:
     - hosts:
         - grpc.wookiesrpeople2.dev
@@ -23,4 +24,4 @@ spec:
               service:
                 name: authentication-prod
                 port:
-                  number: 50051
+                  name: grpc
