@@ -7,7 +7,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: grpc-web@kubernetescrd
-    traefik.ingress.kubernetes.io/service.serversscheme: grpc
+    traefik.ingress.kubernetes.io/service.serversscheme: h2c
 spec:
   tls:
     - hosts:
