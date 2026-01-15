@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: authentication-prod-ingress
+  namespace: production
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: grpc-web@kubernetescrd
+spec:
+  tls:
+    - hosts:
+        - wookiesrpeople2.dev
+      secretName: cloudflare-api-token
+  rules:
+    - host: grpc.wookiesrpeople2.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: authentication-prod
+                port:
+                  number: 50051
